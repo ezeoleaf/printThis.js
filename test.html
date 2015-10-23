@@ -1,0 +1,120 @@
+<html>
+<head>
+<title>Student List</title>
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximun-scale=1.0, minimun-scale=1.0">
+<link rel="stylesheet" type="text/css" href="test/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="test/css/bootstrap-theme.min.css">
+<script src="test/js/jquery.min.js"></script>
+<script src="test/js/bootstrap.min.js"></script>
+<script src="js/printThis.js"></script>
+<script>
+	
+var studentDictionary = {1: "Bosio/--/Nicolas/--/33.411.353/--/Ingeniero/a en Electrónica", 2: "Gutierrez/--/Nicolás Daniel/--/31.731.339/--/Ingeniero/a en Electrónica", 3: "Irusta/--/Ramiro Andres/--/27.246.451/--/Ingeniero/a en Electrónica", 4: "Martini/--/Matías Leonel/--/34.468.894/--/Ingeniero/a en Electrónica", 5: "Muñoz/--/Jorge Javier/--/25.743.510/--/Ingeniero/a en Electrónica", 6: "Pierucci/--/Paulo Dante/--/27.395.131/--/Ingeniero/a en Electrónica", 7: "Seia/--/Diego Francisco/--/31.807.796/--/Ingeniero/a en Electrónica", 8: "Abba/--/David Marcelo/--/36.186.715/--/Ingeniero/a en Sistemas de Información", 9: "Alloco/--/Federico Jesús/--/36.707.141/--/Ingeniero/a en Sistemas de Información", 10: "Baccifaba/--/Román Jesús/--/35.278.818/--/Ingeniero/a en Sistemas de Información", 11: "Balog/--/Martin Ignacio/--/25.643.854/--/Ingeniero/a en Sistemas de Información", 12: "Barsce/--/Juan Cruz/--/33.728.194/--/Ingeniero/a en Sistemas de Información", 13: "Bocco/--/Daniel Alejandro/--/34.672.082/--/Ingeniero/a en Sistemas de Información", 14: "Boiero/--/Agustin/--/35.104.176/--/Ingeniero/a en Sistemas de Información", 15: "Cabral/--/Adrian/--/29.514.602/--/Ingeniero/a en Sistemas de Información", 16: "Castrillo/--/Marcelo Sebastián/--/35.278.804/--/Ingeniero/a en Sistemas de Información", 17: "Favro/--/Ignacio Daniel/--/32.943.325/--/Ingeniero/a en Sistemas de Información", 18: "Franciscón/--/Emiliano/--/35.638.081/--/Ingeniero/a en Sistemas de Información", 19: "Lepore/--/Esteban Leonardo/--/33.323.870/--/Ingeniero/a en Sistemas de Información", 20: "Lopez/--/Mariano/--/31.149.921/--/Ingeniero/a en Sistemas de Información", 21: "Marcelloni/--/Esteban Eduardo/--/32.585.911/--/Ingeniero/a en Sistemas de Información", 22: "Martin/--/Emiliano/--/36.372.524/--/Ingeniero/a en Sistemas de Información", 23: "Morresi/--/Luciano Dario/--/34.686.107/--/Ingeniero/a en Sistemas de Información", 24: "Peñarrieta/--/Micaela José/--/35.670.514/--/Ingeniero/a en Sistemas de Información", 25: "Ambrosini/--/Emilio Jose/--/35.638.672/--/Ingeniero/a Mecánica", 26: "Jalil/--/Jeremías Jorge Elías/--/34.238.181/--/Ingeniero/a Mecánica", 27: "Palmucci/--/Diego Hernán/--/32.477.071/--/Ingeniero/a Mecánica", 28: "Stratta/--/Lucas Daniel/--/34.468.859/--/Ingeniero/a Mecánica", 29: "Doldán/--/Mauricio Nicolás/--/29.026.384/--/Ingeniero/a Química", 30: "Stroppiano/--/María Celeste/--/34.969.923/--/Ingeniero/a Química", 31: "Tumini/--/Yanina Mercedes/--/31.248.494/--/Ingeniero/a Química", 32: "Valazza/--/Lucia Andre/--/34.560.457/--/Ingeniero/a Química", 33: "Burello/--/Carla Andrea/--/29.841.546/--/Licenciado/a en Administración Rural", 34: "Olmos/--/Marina Soledad/--/36.053.445/--/Licenciado/a en Administración Rural", 35: "Karmalita/--/Marcela Inés/--/22.078.798/--/Licenciado/a en Educación Física", 36: "Nuñez/--/Cristian Norberto/--/34.342.630/--/Licenciado/a en Lengua Inglesa", 37: "Gonzalez Estevez/--/Virginia/--/33.045.574/--/Especialista en Tecnologia de los Alimentos", 38: "Semprini/--/Diego Gustavo/--/25.508.074/--/Especialista en Tecnologia de los Alimentos", 39: "Tabasso/--/Mariela Mercedes/--/25.120.914/--/Especialista en Tecnologia de los Alimentos", 40: "Acosta/--/Leonel Darío/--/34.725.289/--/Mecatrónica", 41: "Arce/--/Gabriel Maximiliano/--/38.332.599/--/Mecatrónica", 42: "Baggini/--/Nicolas /--/30.289.508/--/Mecatrónica", 43: "Falchetto/--/Lucas Matías/--/36.490.899/--/Mecatrónica", 44: "Fiora/--/Gianfranco/--/36.366.408/--/Mecatrónica", 45: "Gauna/--/Jose Humberto/--/14.991.645/--/Mecatrónica", 46: "Jacobi/--/Federico/--/36.132.055/--/Mecatrónica", 47: "Marchegiani/--/Franco/--/37.630.257/--/Mecatrónica", 48: "Marengo/--/Javier Eduardo/--/21.761.811/--/Mecatrónica", 49: "Morello/--/Fabio/--/29.838.731/--/Mecatrónica", 50: "Rastelli/--/Matias/--/35.490.963/--/Mecatrónica", 51: "Simeoni/--/Fernando/--/31.475.150/--/Mecatrónica", 52: "Tissera/--/Daniel Fernando/--/35.187.832/--/Mecatrónica", 53: "Videla/--/Martín Ariel/--/34.808.068/--/Mecatrónica", 54: "Caudana/--/Franco David/--/37.287.512/--/Técnico/a Electrónico", 55: "Delía/--/Juan Pablo/--/34.685.856/--/Técnico/a Electrónico", 56: "Ferretti/--/Emmanuel Alejandro/--/33.198.866/--/Técnico/a Electrónico", 57: "Martino/--/Ignacio Gastón/--/35.035.960/--/Técnico/a Electrónico", 58: "Rosa/--/Pablo José Miguel/--/31.608.797/--/Técnico/a Electrónico", 59: "Vico/--/Matías Daniel/--/35.556.207/--/Técnico/a Electrónico", 60: "Comba/--/Christian Dario/--/31.479.754/--/Técnico/a en Administración Rural", 61: "Cossavella/--/Virginia/--/36.631.485/--/Técnico/a en Administración Rural", 62: "Doffo/--/Marina/--/35.471.628/--/Técnico/a en Administración Rural", 63: "Nahuel Jesús/--/Benvenutti/--/35.564.979/--/Técnico/a en Administración Rural", 64: "Poggi/--/Juan Pablo/--/34.560.482/--/Técnico/a en Administración Rural", 65: "Rovere/--/Nicolás/--/36.220.202/--/Técnico/a en Administración Rural", 66: "Sosa/--/Diana Romina/--/36.027.163/--/Técnico/a en Administración Rural", 67: "Baumann/--/Melisa Romina/--/35.639.207/--/Técnico/a Química", 68: "Bellotti/--/Camila/--/38.158.499/--/Técnico/a Química", 69: "Chiappero/--/Alejandro/--/37.876.481/--/Técnico/a Química", 70: "Gamba/--/MarÍa Florencia/--/35.667.587/--/Técnico/a Química", 71: "Irigo Simó/--/Ornella Belén/--/38.019.552/--/Técnico/a Química", 72: "Liboa/--/María Alejandra Guadalupe/--/32.080.884/--/Técnico/a Química", 73: "Mercatante/--/María Del Milagro/--/37.287.855/--/Técnico/a Química", 74: "Molinengo/--/Lautaro/--/37.286.425/--/Técnico/a Química", 75: "Pegoraro/--/Lidia Edith/--/23.181.103/--/Técnico/a Química", 76: "Prestti/--/Yanina/--/33.309.039/--/Técnico/a Química", 77: "Varela/--/Eliana/--/30.433.986/--/Técnico/a Química", 78: "Ateca/--/Catalina /--/37.526.153/--/Técnico/a Superior en Negociación de Bienes", 79: "Avendaño/--/Franco Alexis Ezequiel/--/33.873.972/--/Técnico/a Superior en Negociación de Bienes", 80: "Barrenechea/--/Teresa Bersabe /--/12.364.517/--/Técnico/a Superior en Negociación de Bienes", 81: "Bianciotto/--/Marcelo Andrés/--/30.507.623/--/Técnico/a Superior en Negociación de Bienes", 82: "Boano/--/Evangelina Elizabeth/--/37.288.138/--/Técnico/a Superior en Negociación de Bienes", 83: "Bustos/--/Ayelen /--/37.876.307/--/Técnico/a Superior en Negociación de Bienes", 84: "Calderon/--/Dario Leonardo/--/33.534.629/--/Técnico/a Superior en Negociación de Bienes", 85: "Ceschini/--/Agustin Ramon/--/37.093.032/--/Técnico/a Superior en Negociación de Bienes", 86: "Faner/--/Monica Alejandra/--/17.156.893/--/Técnico/a Superior en Negociación de Bienes", 87: "Fonseca/--/Carlos Miguel/--/31.731.424/--/Técnico/a Superior en Negociación de Bienes", 88: "Giacomelli Sáenz/--/Gastón/--/38.478.444/--/Técnico/a Superior en Negociación de Bienes", 89: "Gomez/--/Martin Jesus/--/27.735.300/--/Técnico/a Superior en Negociación de Bienes", 90: "Mendez García/--/Angelica María/--/94.747.894/--/Técnico/a Superior en Negociación de Bienes", 91: "Moreno/--/Gladys Silbana/--/17.555.164/--/Técnico/a Superior en Negociación de Bienes", 92: "Novillo Brondo/--/Johana Belen/--/37.374.353/--/Técnico/a Superior en Negociación de Bienes", 93: "Ramos Oliva/--/Nadia Magalí/--/36.793.718/--/Técnico/a Superior en Negociación de Bienes", 94: "Rosso/--/Maximiliano Joaquin/--/37.287.508/--/Técnico/a Superior en Negociación de Bienes", 95: "Sayno/--/María Mercedes/--/35.042.448/--/Técnico/a Superior en Negociación de Bienes", 96: "Schmidt/--/Daiana Elizabeth/--/35.638.334/--/Técnico/a Superior en Negociación de Bienes", 97: "Sigliano/--/Tania/--/36.130.935/--/Técnico/a Superior en Negociación de Bienes", 98: "Tigero/--/Horacio Guillermo/--/17.145.518/--/Técnico/a Superior en Negociación de Bienes"
+};
+
+var sep = '/--/';
+
+function showStudent()
+{
+	htmlToAdd = "";
+	$.each(studentDictionary, function(index, value)
+	{
+		vStudentData = value.split(sep);
+
+		htmlToAdd += '<tr>'; 
+			htmlToAdd += '<td><strong>'+index+'</strong></td>';
+			htmlToAdd += '<td>'+vStudentData[0]+'</td>';
+			htmlToAdd += '<td>'+vStudentData[1]+'</td>';
+			htmlToAdd += '<td>'+vStudentData[2]+'</td>';
+		htmlToAdd += '</tr>';
+
+	});
+
+	$('#studentData').html(htmlToAdd);
+}
+
+function searchControl()
+{
+	wordToSearch = $('#contentToSearch').val().toLowerCase().trim();
+	searchCounter = 0;
+	htmlToAdd = "";
+	if(wordToSearch != '')
+	{
+		$.each(studentDictionary, function(index, value)
+		{
+			vStudentData = value.split(sep);
+
+			if((vStudentData[0].toLowerCase().indexOf(wordToSearch) != -1) || (vStudentData[1].toLowerCase().indexOf(wordToSearch) != -1) || (vStudentData[2].toLowerCase().indexOf(wordToSearch) != -1))
+			{
+				searchCounter++;
+				
+				htmlToAdd += '<tr>';
+					htmlToAdd += '<td><strong>'+searchCounter+'</strong></td>';
+					htmlToAdd += '<td>'+vStudentData[0]+'</td>';
+					htmlToAdd += '<td>'+vStudentData[1]+'</td>';
+					htmlToAdd += '<td>'+vStudentData[2]+'</td>';
+				htmlToAdd += '</tr>';
+			}
+
+		});
+
+		$('#studentData').html(htmlToAdd);
+	}
+	else
+	{
+		showStudent();
+	}
+}
+
+$(document).ready(function()
+{
+
+showStudent();
+
+});
+
+</script>
+</head>
+<body link="#000000" vlink="#000000" alink="#FFFFFF">
+<div id="container">
+	<div class="col-xs-12" align="center">
+		<h4>Student List</h4>
+	</div>
+</div>
+<div id="container">
+	<div class="col-xs-2 col-sm-3 col-md-4"></div>
+	<div class="col-xs-8 col-sm-6 col-md-4" align="center">
+		<div class="input-group">
+			<input type="text" class="form-control" placeholder="Buscar..." id="contentToSearch" onkeyup="searchControl()">
+			<span class="input-group-btn">
+				<button class="btn btn-default" type="button">Search</button>
+				<button class="btn btn-default" type="button" onclick="printThis()">Print</button>
+			</span>
+		</div>
+	</div>
+</div>
+<div id="container">
+	<div id="studentList" class="col-xs-12 printThis">
+		<table class="table table-striped table-responsive">
+			<thead>
+				<tr>
+					<th colspan="4">
+						Student List
+					</th>
+				</tr>
+				<tr>
+					<th>#</th>
+					<th>LastName</th>
+					<th>Name</th>
+					<th>Document Number</th>
+				</tr>
+			</thead>
+			<tbody id="studentData">
+				
+			</tbody>
+		</table>
+	</div>
+</div>
+</body>
+</html>

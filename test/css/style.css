@@ -1,0 +1,42 @@
+body
+{
+	background-color: CornflowerBlue;
+}
+
+.container
+{
+	background-color: white;
+}
+
+header
+{
+	background: blue;
+	color: white;
+}
+
+.main
+{
+	background: white;
+	color: black;
+}
+
+aside
+{
+	background: green;
+	color: white;
+}
+.color
+{
+	background: red;
+	color: black;
+}
+
+.borderBebida
+{
+	border: 1px solid;
+	border-color: black;
+	background-color: #74A0EF;
+	color: white;
+}
+
+
